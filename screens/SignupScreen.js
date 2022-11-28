@@ -29,18 +29,42 @@ const SignupScreen = ({navigation}) => {
     labelValue={password}
     onChangeText={(userPassword) => setPassword(userPassword)}
     secureTextEntry={true}
-    placeholderText={'Password'}
+    placeholderText={'Confirm Password'}
     />
 
      <CustomButton 
-     buttonTitle={'Log In'}
-     onPress={() => alert('Log in clicked')}/>
+     buttonTitle={'Sign Up'}
+     onPress={() => alert('Signup clicked')}/>
 
-     <TouchableOpacity style={styles.forgotButton} onPress={() => navigation.navigate('Signup')}>
-      <Text style={styles.navButtonText}>Don't have an account? Create here!!</Text>
-     </TouchableOpacity>
+     <View style={styles.textPrivate}>
+        <Text style={styles.color_textPrivate}>
+          By registering, you confirm that you accept our{' '}
+        </Text>
+        <TouchableOpacity onPress={() => alert('Terms Clicked!')}>
+          <Text style={[styles.color_textPrivate, {color: '#e88832'}]}>
+            Terms of service
+          </Text>
+        </TouchableOpacity>
+        <Text style={styles.color_textPrivate}> and </Text>
+        <Text style={[styles.color_textPrivate, {color: '#e88832'}]}>
+          Privacy Policy
+        </Text>
+      </View>
 
-     <CustomSocials buttonTitle={'Login with Facebook'}/>
+
+
+     <CustomSocials 
+     buttonTitle={'Sign Up with Facebook'}
+     btnType="facebook"
+     color="#4867aa"
+     backgroundColor='#e6ebf6'
+     />
+          <CustomSocials 
+     buttonTitle={'Sign Up with Google'}
+     btnType="google"
+     color="#de4d41"
+     backgroundColor="#f5e7ea"
+     />
     </View>
   )
 }
@@ -54,6 +78,17 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       padding: 20
+    },
+    textPrivate: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      marginVertical: 35,
+      justifyContent: 'center',
+    },
+    color_textPrivate: {
+      fontSize: 13,
+      fontWeight: '400',
+      color: 'grey',
     },
     logo: {
       // height: 150,
